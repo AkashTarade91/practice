@@ -1,27 +1,38 @@
-//Author :Ravi Tambade
-//Write some lines of code to generate html output
- var express=require('express');   // import library
- var app=express();                // create global object
+/*var count=34;
+count++;
+console.log("Server is running");
+console.log(count);
 
-//define Http handling logic for each type of HTTP request
-//Just now I have added file
 
+//CTL + SHIFT + C   
+
+*/
+
+var express =require("express");  //lib-----Node Module
+var app=express();  // will create app object from express package
+
+var onAboutUs=function(req, res){
+    res.send("Chief Mentor :Ravi Tambade");
+};
 var onDefault=function(req, res){
-    res.send("<h1> Transflower Learning Pvt. Ltd.   </h1>" +
-             "<hr/>"+
-             "<ol>" +
-             "<li> Mentoring for skill building</li>"+
-             "<li> Workshops</li>"+
-             "<li> Online Courses</li>"+
-             "<li> Dac Courses</li>"
-    );
-  };
-
-  var onAboutUs=function(req,res){
-        res.send("Chief Mentor: Ravi Tambade ");
-  };
-  // configure http incomming request handling  logic
-  app.get("/",onDefault);
-  app.get("/aboutus",onAboutUs)
-  app.listen(8081);  // contionusly wait fro client request
-  console.log("Server is listening on port 8081");
+    res.send("<h1>Transflower Learning Pvt. Ltd</h1>"+
+              "<hr/>"+
+              "<ol>"+
+                    " <li>Mentoring for skill building</li>"+
+                    " <li>Workshops</li>"+
+                    " <li>Online Course</li>"+
+                    " <li>Corporate Training</li>"+
+             "</ol>");
+};
+app.get("/",onDefault);  // Request handler functions are registered
+app.get("/aboutus",onAboutUs);  // Request handler functions are registered
+var server=app.listen(8081);
+console.log("Server is running on port 8081");
+// if external packages are required
+// we have to download those packages from internet using  package manager tool
+// Runtime--------tools-------------packages-----------------------config file
+// Java-----------maven--------------.jar files----------------------pom.xml
+// Android--------graddle------------android jar file----------------pom.xml
+// Python---------pip----------------Python libraries----------------
+// .NET ---------Nugget--------------dll files-----------------------package.config
+// NodeJS----------npm --------------download node modules-----------package.json 
